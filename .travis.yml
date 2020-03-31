@@ -5,6 +5,12 @@ os:
   - osx
   - windows
 
+arch:
+  - amd64
+  - ppc64le
+  - s390x
+  - arm64
+
 env:
   global:
     - GRAVIS_REPO="https://github.com/DanySK/Gravis-CI.git"
@@ -15,6 +21,21 @@ env:
     - JDK="adopt-openj9@1.11"
     - JDK="adopt@1.14"
     - JDK="adopt-openj9@1.14"
+
+jobs:
+  exclude:
+    - os: windows
+      arch: ppc64le
+    - os: windows
+      arch: s390x
+    - os: windows
+      arch: arm64
+    - os: osx
+      arch: ppc64le
+    - os: osx
+      arch: s390x
+    - os: osx
+      arch: arm64
 
 before_install:
   - travis_retry git clone --depth 1 $GRAVIS_REPO $GRAVIS
