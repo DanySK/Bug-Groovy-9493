@@ -7,4 +7,6 @@ Also tracked under Kotest issue tracker: https://github.com/kotest/kotest/issues
 
 ## For maximum reproducibility, a CI pipeline has been setup on Travis
 
-[![Build Status](https://travis-ci.com/DanySK/Bug-Groovy-9493.svg?branch=master)](https://travis-ci.com/DanySK/Bug-Groovy-9493)
+Original version, with the bug: [![Build Status](https://travis-ci.com/DanySK/Bug-Groovy-9493.svg?branch=master)](https://travis-ci.com/DanySK/Bug-Groovy-9493)
+
+Patched version of OpenJ9: [![Build Status](https://travis-ci.com/DanySK/Bug-Groovy-9493.svg?branch=fix-v02)](https://travis-ci.com/DanySK/Bug-Groovy-9493)
