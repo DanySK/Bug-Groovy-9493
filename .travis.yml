@@ -2,24 +2,17 @@ language: shell
 
 os:
   - linux
-  - osx
-  - windows
 
 env:
   global:
     - GRAVIS_REPO="https://github.com/DanySK/Gravis-CI.git"
     - GRAVIS="$HOME/gravis"
     - TERM="dumb"
-  matrix:
-    - JDK="adopt@1.11"
-    - JDK="adopt-openj9@1.11"
-    - JDK="adopt@1.14"
-    - JDK="adopt-openj9@1.14"
 
 before_install:
-  - travis_retry git clone --depth 1 $GRAVIS_REPO $GRAVIS
-  - source $GRAVIS/install-jdk
-
+  - unzip jdk11_openj9_fix_v02.zip
+  - export JAVA_HOME="$HOME/jdk11_openj9_fix_v02"
+  - export PATH="jdk11_openj9_fix_v02/bin:$PATH"
 install:
   - java -version
 
@@ -27,6 +20,7 @@ script:
   - travis_retry ./gradlew test
 
 before_cache:
+  - travis_retry git clone --depth 1 $GRAVIS_REPO $GRAVIS
   - $GRAVIS/clean-gradle-cache
 cache:
   directories:
