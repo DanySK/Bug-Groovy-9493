@@ -11,8 +11,8 @@ env:
 
 before_install:
   - unzip jdk11_openj9_fix_v02.zip
-  - export JAVA_HOME="$HOME/jdk11_openj9_fix_v02"
-  - export PATH="jdk11_openj9_fix_v02/bin:$PATH"
+  - export JAVA_HOME="$TRAVIS_BUILD_DIR/jdk11_openj9_fix_v02"
+  - export PATH="$TRAVIS_BUILD_DIR/jdk11_openj9_fix_v02/bin:$PATH"
 install:
   - java -version
 
